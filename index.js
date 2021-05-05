@@ -1,6 +1,7 @@
-const videoElement = document.getElementsByClassName('input_video')[0];
-const canvasElement = document.getElementsByClassName('output_canvas')[0];
-const canvasCtx = canvasElement.getContext('2d');
+// const videoElement = document.getElementsByClassName('input_video')[0];
+// const canvasElement = document.getElementsByClassName('output_canvas')[0];
+// const canvasCtx = canvasElement.getContext('2d');
+const image = document.querySelector("img")
 
 function onResults(results) {
   // canvasCtx.save();
@@ -27,11 +28,13 @@ pose.setOptions({
 });
 pose.onResults(onResults);
 
-const camera = new Camera(videoElement, {
-  onFrame: async () => {
-    await pose.send({image: videoElement});
-  },
-  width: 640,
-  height: 360
-});
-camera.start();
+pose.send({image: image})
+
+// const camera = new Camera(videoElement, {
+//   onFrame: async () => {
+//     await pose.send({image: videoElement});
+//   },
+//   width: 640,
+//   height: 360
+// });
+// camera.start();
